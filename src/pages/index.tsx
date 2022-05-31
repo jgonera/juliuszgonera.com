@@ -133,7 +133,7 @@ type IndexPageProps = PageProps & {
         node: {
           excerpt: string;
           slug: string;
-          frontmatter?: {
+          frontmatter: {
             date?: string;
             title?: string;
           };
@@ -198,7 +198,7 @@ const IndexPage = (props: IndexPageProps) => {
         {edges.map(({ node }) => (
           <li>
             <Link to={node.slug}>{node.frontmatter.title}</Link> on{" "}
-            {new Date(node.frontmatter.date).toLocaleDateString()}
+            {new Date(node.frontmatter.date ?? 0).toLocaleDateString()}
           </li>
         ))}
       </ul>
